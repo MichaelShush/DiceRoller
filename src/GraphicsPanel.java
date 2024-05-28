@@ -1,15 +1,19 @@
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class GraphicsPanel extends JPanel {
     private BufferedImage dice;
     private double stringX;
     private double starY;
     private int x;
+    private JButton rollButton;
 
     public GraphicsPanel() {
         stringX = 0;
@@ -19,6 +23,7 @@ public class GraphicsPanel extends JPanel {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        rollButton = new JButton("roll");
         Roll d100 = new Roll(100);
         Roll d20 = new Roll(20);
         Roll d12 = new Roll(12);
@@ -31,6 +36,15 @@ public class GraphicsPanel extends JPanel {
         d4.roll(5);
         d100.roll(1);
         x = d20.returnTotal();
+    }
+
+    public void actionPerformed(ActionEvent e){
+        if(e.getSource() instanceof JButton){
+            JButton button = (JButton) e.getSource();
+            if(button == rollButton){
+
+            }
+        }
     }
 
     @Override
@@ -68,5 +82,6 @@ public class GraphicsPanel extends JPanel {
         g.drawString("D4", 26, 385);
         g.drawString("coin", 26, 430);
         g.drawString("Result: " + x, 100, 115);
+        rollButton.setLocation(50, 450);
     }
 }
