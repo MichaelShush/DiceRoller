@@ -6,7 +6,7 @@ public class MainFrame implements Runnable {
     public MainFrame() {
         JFrame frame = new JFrame("Dice Roller");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 1000);
+        frame.setSize(1000, 1000);
         frame.setLocation(300, 50);
 
         // create and add panel
